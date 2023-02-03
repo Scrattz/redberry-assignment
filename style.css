@@ -1,9 +1,15 @@
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/assets/HelveticaNeue.ttc') format('truetype');
+}
+
 * {
   box-sizing: border-box;
 }
 html {
   width: 100%;
   height: 100%;
+  font-family: 'HelveticaNeue';
 }
 body {
   width: 100%;
@@ -51,7 +57,7 @@ body {
     position: absolute;
     top: -2.5rem;
     right: -11.4375rem;
-
+    z-index: -1;
 }
 
 
