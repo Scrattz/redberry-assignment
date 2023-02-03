@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.landingPage {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/shutterstock_2189773743\ 1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 4.375rem;
+}
+.header {
+  padding: 1.5625rem 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+.logo {
+  width: 14.75rem;
+}
+.clicker {
+  font-family: inherit;
+  font-size: 1.25rem;
+  width: 29rem;
+  height: 3.75rem;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 1.125rem 7.875rem;
+
+}
+.clickerAndStamp {
+    position: absolute;
+    left: calc(50% - 14.5rem);
+    top: calc(50% - 1.675rem);
+}
+
+.stamp {
+    width: 18.6875rem;
+    height: 18.6875rem;
+    position: absolute;
+    top: -2.5rem;
+    right: -11.4375rem;
+
+}
+
+
+.hide {
+    display: none;
+}
+
+.show { 
+    display: flex;
+}
