@@ -9,14 +9,60 @@
   </head>
   <body>
     <div class="landingPage">
-      <div class="header">
-        <img class="logo" src="./assets/LOGO-02 3.svg" />
+      <div class="landingPageHeader">
+        <img class="landingPageHeaderLogo" src="./assets/images/LOGO-02 3.svg" />
       </div>
-      <div class="clickerAndStamp">
-        <button class="clicker">რეზიუმეს დამატება</button>
-        <img class="stamp" src="./assets/LOGO-40 1.svg" />
+      <div class="newResumeAndStamp">
+        <button class="newResume">რეზიუმეს დამატება</button>
+        <img class="stamp" src="./assets/images/LOGO-40 1.svg" />
       </div>
     </div>
-
+    <section class="formsAndPreview">
+      <form class="personalInfo">
+        <div class="personalInfoHeader">
+          <span class="headerTitle">პირადი ინფო</span>
+          <span class="pageNumber">1/3</span>
+        </div>
+        <div class="goToLandingPage">
+          <img src="./assets/images/Vector.svg">
+        </div>
+        <div class="name">
+          <div class="nameColumn">
+            <label class="inputLabel" for="firstName">სახელი</label>
+            <input type="text" name="" id="firstName" placeholder="სახელი" />
+            <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+          </div>
+          <div class="nameColumn">
+            <label class="inputLabel" for="lastName">გვარი</label>
+            <input type="text" name="" id="lastName" placeholder="გვარი" />
+            <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+          </div>
+        </div>
+        <div class="uploadImage">
+          <h4 class="imgInputLabel">პირადი ფოტოს ატვირთვა</h4>
+          <label class="inputLabel imgInput" for="imgInput">ატვირთვა<input type="file" id="imgInput">
+          </label>
+          
+        </div>
+        <div class="aboutMe">
+          <label class="inputLabel" for="aboutMeInput">ჩემ შესახებ (არასავალდებულო)</label>
+          <textarea name="" id="aboutMeInput" cols="30" rows="5" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+        </div>
+        <div class="email">
+          <label class="inputLabel" for="emailInput">ელ.ფოსტა</label>
+          <input type="email" name="" id="emailInput" placeholder="testemail@redberry.ge">
+          <span class="hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
+        </div>
+        <div class="phoneNumber">
+          <label class="inputLabel" for="phoneNumberInput">მობილურის ნომერი</label>
+          <input type="number" name="" id="phoneNumberInput" placeholder="+995 5XX XX XX XX">
+          <span class="hint">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</span>
+        </div>
+        <button class="nextBtn">შემდეგი</button>
+      </form>
+      <form class="experience"></form>
+      <form class="education"></form>
+      <form class="preview"></form>
+    </section>
   </body>
 </html>

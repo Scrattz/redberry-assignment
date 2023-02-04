@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'HelveticaNeue';
-  src: url('/assets/HelveticaNeue.ttc') format('truetype');
+  src: url('/assets/fonts/HelveticaNeue.ttc') format('truetype');
 }
 
 * {
@@ -15,40 +15,44 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
+  background-color: #F9F9F9;
 }
 
 .landingPage {
   width: 100vw;
   height: 100vh;
-  background-image: url("./assets/shutterstock_2189773743\ 1.svg");
+  background-image: url("./assets/images/shutterstock_2189773743\ 1.svg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0 4.375rem;
+  display: none;
 }
-.header {
+.landingPageHeader {
   padding: 1.5625rem 0;
   border-bottom: 1px solid #1a1a1a;
 }
-.logo {
+.landingPageHeaderLogo {
   width: 14.75rem;
 }
-.clicker {
+
+.newResumeAndStamp {
+  position: absolute;
+  left: calc(50% - 14.5rem);
+  top: calc(50% - 1.675rem);
+}
+
+.newResume {
   font-family: inherit;
   font-size: 1.25rem;
   width: 29rem;
   height: 3.75rem;
   background-color: #1a1a1a;
-  color: white;
+  color: #FFFFFF;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   padding: 1.125rem 7.875rem;
 
-}
-.clickerAndStamp {
-    position: absolute;
-    left: calc(50% - 14.5rem);
-    top: calc(50% - 1.675rem);
 }
 
 .stamp {
@@ -60,11 +64,183 @@ body {
     z-index: -1;
 }
 
+.formsAndPreview {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 120rem;
 
-.hide {
-    display: none;
 }
 
-.show { 
-    display: flex;
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 2.1875rem 9.375rem;
+  width: 100%;
+  max-width: 68.625rem;
+  min-height: 67.5rem;
+  background-color: inherit;
+}
+
+.goToLandingPage {
+  background-color: #FFFFFF;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  left: 2.5rem;
+  top: 2.5rem;
+  cursor: pointer;
+}
+
+.personalInfoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1A1A1A;
+  padding: 0.75rem 0;
+  margin-bottom: 4.8125rem;
+}
+
+.headerTitle {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.pageNumber {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #1A1A1A;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 6.625rem; */
+  margin-bottom: 3.375rem;
+}
+
+.nameColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 23.1875rem;
+  height: 6.625rem;
+}
+
+.uploadImage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3.0625rem;
+}
+
+#imgInput {
+  display: none;
+}
+
+.imgInputLabel { 
+  margin: 0;
+
+  margin-right: 1rem;
+}
+
+.imgInput {
+  background-color: #0E80BF;
+  color: white;
+  width: 6.6875rem;
+  font-size: 0.875rem;
+  padding: 0.3125rem 1.1875rem;
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.0625rem;
+}
+
+#aboutMeInput {
+  margin-top: 0.5rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid #BCBCBC;
+  width: 100%;
+  border: 1px solid #BCBCBC;
+  border-radius: 4px;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.8125rem;
+}
+
+.phoneNumber {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+
+.hint {
+  font-weight:400;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  color: #2E2E2E;
+}
+
+/* .inputLabel {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.3125rem;
+  margin: 0;
+  margin-right: 1rem;
+  color: #000000;
+} */
+
+input {
+  margin: 0.5rem 0;
+  padding: 0.875rem 1rem;
+  border: 1px solid #BCBCBC;
+  width: 100%;
+  border: 1px solid #BCBCBC;
+  border-radius: 4px;
+}
+
+#firstName, 
+#lastName {   
+  height: 3rem;
+  max-width: 23.1875rem;  
+}
+
+.nextBtn {
+  width: 9.4375rem;
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  background-color: #6B40E3;
+  border: none;
+  border-radius: 4px;
+  padding: 0.875rem 2.1875rem;
+  margin-left: auto;
+}
+
+.preview {
+  width: 51.375rem;
+  min-height: 67.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  /* display: none; */
 }
