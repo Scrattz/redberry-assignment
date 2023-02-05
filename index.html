@@ -10,59 +10,183 @@
   <body>
     <div class="landingPage">
       <div class="landingPageHeader">
-        <img class="landingPageHeaderLogo" src="./assets/images/LOGO-02 3.svg" />
+        <img
+          class="landingPageHeaderLogo"
+          src="./assets/images/LOGO-02 3.svg"
+        />
       </div>
       <div class="newResumeAndStamp">
         <button class="newResume">რეზიუმეს დამატება</button>
         <img class="stamp" src="./assets/images/LOGO-40 1.svg" />
       </div>
     </div>
+
     <section class="formsAndPreview">
-      <form class="personalInfo">
-        <div class="personalInfoHeader">
-          <span class="headerTitle">პირადი ინფო</span>
-          <span class="pageNumber">1/3</span>
-        </div>
+      <div class="forms">
         <div class="goToLandingPage">
-          <img src="./assets/images/Vector.svg">
+          <img src="./assets/images/Vector.svg" />
         </div>
-        <div class="name">
-          <div class="nameColumn">
-            <label class="inputLabel" for="firstName">სახელი</label>
-            <input type="text" name="" id="firstName" placeholder="სახელი" />
-            <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+
+        <form class="personalInfo">
+          <div class="personalInfoHeader">
+            <span class="headerTitle">პირადი ინფო</span>
+            <span class="pageNumber">1/3</span>
           </div>
-          <div class="nameColumn">
-            <label class="inputLabel" for="lastName">გვარი</label>
-            <input type="text" name="" id="lastName" placeholder="გვარი" />
-            <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+
+          <div class="name">
+            <div class="column">
+              <label class="inputLabel" for="firstName">სახელი</label>
+              <div class="inputAndIcons">
+                <input
+                  type="text"
+                  name=""
+                  id="firstName"
+                  placeholder="სახელი"
+                />
+                <img class="validIcon" src="./assets/images/validIcon.svg" />
+                <img
+                  class="invalidIcon"
+                  src="./assets/images/invalidIcon.svg"
+                />
+              </div>
+              <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+            </div>
+            <div class="column">
+              <label class="inputLabel" for="lastName">გვარი</label>
+              <div class="inputAndIcons">
+                <input type="text" name="" id="lastName" placeholder="გვარი" />
+                <img class="validIcon" src="./assets/images/validIcon.svg" />
+                <img
+                  class="invalidIcon"
+                  src="./assets/images/invalidIcon.svg"
+                />
+              </div>
+              <span class="hint">მინიმუმ 2 ასო, ქართული ასოები</span>
+            </div>
+          </div>
+          <div class="uploadImage">
+            <h4 class="imgInputLabel">პირადი ფოტოს ატვირთვა</h4>
+            <label class="imgInput" for="imgInput"
+              >ატვირთვა<input type="file" id="imgInput" />
+            </label>
+          </div>
+          <div class="aboutMe">
+            <label class="inputLabel" for="aboutMeInput"
+              >ჩემ შესახებ (არასავალდებულო)</label
+            >
+            <textarea
+              name=""
+              id="aboutMeInput"
+              cols="30"
+              rows="5"
+              placeholder="ზოგადი ინფო შენ შესახებ"
+            ></textarea>
+          </div>
+          <div class="email">
+            <label class="inputLabel" for="emailInput">ელ.ფოსტა</label>
+            <div class="inputAndIcons">
+              <input
+                type="email"
+                name=""
+                id="emailInput"
+                placeholder="testemail@redberry.ge"
+              />
+              <img class="validIcon" src="./assets/images/validIcon.svg" />
+              <img class="invalidIcon" src="./assets/images/invalidIcon.svg" />
+            </div>
+            <span class="hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
+          </div>
+          <div class="phoneNumber">
+            <label class="inputLabel" for="phoneNumberInput"
+              >მობილურის ნომერი</label
+            >
+            <div class="inputAndIcons">
+              <input
+                type="number"
+                name=""
+                id="phoneNumberInput"
+                placeholder="+995 5XX XX XX XX"
+              />
+              <img class="validIcon" src="./assets/images/validIcon.svg" />
+              <img class="invalidIcon" src="./assets/images/invalidIcon.svg" />
+            </div>
+            <span class="hint"
+              >უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</span
+            >
+          </div>
+        </form>
+
+        <form class="experience">
+          <div class="experienceHeader">
+            <span class="headerTitle">გამოცდილება</span>
+            <span class="pageNumber">2/3</span>
+          </div>
+          <div class="experienceInputs">
+          <div class="position">
+            <label for="position">თანამდებობა</label>
+            <div class="inputAndIcons">
+              <input
+                type="text"
+                name=""
+                id="position"
+                placeholder="თანამდებობა"
+              />
+              <img class="validIcon" src="./assets/images/validIcon.svg" />
+              <img class="invalidIcon" src="./assets/images/invalidIcon.svg" />
+            </div>
+            <span class="hint">მინიმუმ 2 სიმბოლო</span>
+          </div>
+          <div class="employer">
+            <label for="employer">დამსაქმებელი</label>
+            <div class="inputAndIcons">
+              <input
+                type="text"
+                name=""
+                id="employer"
+                placeholder="დამსაქმებელი"
+              />
+              <img class="validIcon" src="./assets/images/validIcon.svg" />
+              <img class="invalidIcon" src="./assets/images/invalidIcon.svg" />
+            </div>
+            <span class="hint">მინიმუმ 2 სიმბოლო</span>
+          </div>
+          <div class="experiencePeriod">
+            <div class="startDate column">
+              <label for="startDate">დაწყების თარიღი</label>
+              <input type="date" name="" id="startDate" />
+            </div>
+            <div class="endDate column">
+              <label for="endDate">დმთავრების თარიღი</label>
+              <input type="date" name="" id="endDate" />
+            </div>
+          </div>
+          <div class="experienceDescription">
+            <label for="experienceDescription">აღწერა</label>
+            <textarea
+              name=""
+              id="experienceDescription"
+              cols="30"
+              rows="5"
+              placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+            ></textarea>
           </div>
         </div>
-        <div class="uploadImage">
-          <h4 class="imgInputLabel">პირადი ფოტოს ატვირთვა</h4>
-          <label class="inputLabel imgInput" for="imgInput">ატვირთვა<input type="file" id="imgInput">
-          </label>
+        
+        <button class="addExperience">მეტი გამოცდილების დამატება</button>
+        </form>
+
+        <form class="education">
           
+        </form>
+
+        <div class="backAndNextBtns">
+          <button class="backBtn">უკან</button>          
+          <button class="nextBtn">შემდეგი</button>          
         </div>
-        <div class="aboutMe">
-          <label class="inputLabel" for="aboutMeInput">ჩემ შესახებ (არასავალდებულო)</label>
-          <textarea name="" id="aboutMeInput" cols="30" rows="5" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
-        </div>
-        <div class="email">
-          <label class="inputLabel" for="emailInput">ელ.ფოსტა</label>
-          <input type="email" name="" id="emailInput" placeholder="testemail@redberry.ge">
-          <span class="hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
-        </div>
-        <div class="phoneNumber">
-          <label class="inputLabel" for="phoneNumberInput">მობილურის ნომერი</label>
-          <input type="number" name="" id="phoneNumberInput" placeholder="+995 5XX XX XX XX">
-          <span class="hint">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</span>
-        </div>
-        <button class="nextBtn">შემდეგი</button>
-      </form>
-      <form class="experience"></form>
-      <form class="education"></form>
-      <form class="preview"></form>
+        
+      </div>
+
+      <div class="preview"></div>
     </section>
   </body>
 </html>
