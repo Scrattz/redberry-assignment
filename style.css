@@ -1,7 +1,4 @@
-@font-face {
-  font-family: 'HelveticaNeue';
-  src: url('/assets/fonts/HelveticaNeue.ttc') format('truetype');
-}
+@import url("./assets/fonts/HelveticaNeue.ttc");
 
 * {
   box-sizing: border-box;
@@ -9,13 +6,13 @@
 html {
   width: 100%;
   height: 100%;
-  font-family: 'HelveticaNeue';
+  font-family: "HelveticaNeue";
 }
 body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .landingPage {
@@ -25,7 +22,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0 4.375rem;
-  display: none;
+  /* display: none; */
 }
 .landingPageHeader {
   padding: 1.5625rem 0;
@@ -47,21 +44,20 @@ body {
   width: 29rem;
   height: 3.75rem;
   background-color: #1a1a1a;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   padding: 1.125rem 7.875rem;
-
 }
 
 .stamp {
-    width: 18.6875rem;
-    height: 18.6875rem;
-    position: absolute;
-    top: -2.5rem;
-    right: -11.4375rem;
-    z-index: -1;
+  width: 18.6875rem;
+  height: 18.6875rem;
+  position: absolute;
+  top: -2.5rem;
+  right: -11.4375rem;
+  z-index: -1;
 }
 
 .formsAndPreview {
@@ -71,9 +67,9 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   min-width: 120rem;
-
+  display: none;
 }
-.forms { 
+.forms {
   position: relative;
   width: 100%;
   max-width: 68.625rem;
@@ -81,11 +77,10 @@ body {
   padding: 2.1875rem 9.375rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .goToLandingPage {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
@@ -101,7 +96,7 @@ body {
 .personalInfo {
   display: flex;
   flex-direction: column;
-  display: none;
+  /* display: none; */
 }
 
 .personalInfoHeader,
@@ -110,7 +105,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #1A1A1A;
+  border-bottom: 1px solid #1a1a1a;
   padding: 0.75rem 0;
   margin-bottom: 4.8125rem;
 }
@@ -119,14 +114,14 @@ body {
   font-size: 1.5rem;
   line-height: 1.8125rem;
   font-weight: 700;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .pageNumber {
   font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .name {
@@ -137,10 +132,10 @@ body {
   margin-bottom: 3.375rem;
 }
 
-#firstName, 
-#lastName {   
+#firstName,
+#lastName {
   height: 3rem;
-  max-width: 23.1875rem;  
+  max-width: 23.1875rem;
 }
 
 .column {
@@ -163,14 +158,14 @@ body {
   display: none;
 }
 
-.imgInputLabel { 
+.imgInputLabel {
   margin: 0;
 
   margin-right: 1rem;
 }
 
 .imgInput {
-  background-color: #0E80BF;
+  background-color: #0e80bf;
   color: white;
   width: 6.6875rem;
   font-size: 0.875rem;
@@ -186,11 +181,11 @@ body {
 }
 
 #aboutMeInput,
-#experienceDescription,
-#educationDescription {
+#aboutExperience,
+#aboutEducation {
   margin-top: 0.5rem;
   padding: 0.875rem 1rem;
-  border: 1px solid #BCBCBC;
+  border: 1px solid #bcbcbc;
   width: 100%;
   border-radius: 4px;
 }
@@ -208,14 +203,13 @@ body {
 }
 
 .experience {
-  display: flex;
-  flex-direction: column;
   display: none;
+  flex-direction: column;
 }
 
 .experienceInputs {
   padding-bottom: 3.625rem;
-  border-bottom: 1px solid #C1C1C1;
+  border-bottom: 1px solid #c1c1c1;
   margin-bottom: 2.8125rem;
 }
 
@@ -234,8 +228,8 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #FFFFFF;
-  background-color: #62A1EB;
+  color: #ffffff;
+  background-color: #62a1eb;
   border: none;
   border-radius: 4px;
   width: fit-content;
@@ -247,23 +241,23 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #FFFFFF;
-  background-color: #62A1EB;
+  color: #ffffff;
+  background-color: #62a1eb;
   border: none;
   border-radius: 4px;
   width: fit-content;
-  margin-bottom: 12.5rem;
+  /* margin-bottom: 12.5rem; */
   padding: 0.875rem 1.3125rem;
 }
 
 .education {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
 .educationInputs {
   padding-bottom: 3.3125rem;
-  border-bottom: 1px solid #C1C1C1;
+  border-bottom: 1px solid #c1c1c1;
   margin-bottom: 2.8125rem;
 }
 
@@ -277,26 +271,26 @@ body {
   margin-bottom: 2.125rem;
 }
 
-.experienceDescription,
-.educationDescription {
+.aboutExperience,
+.aboutEducation {
   display: flex;
   flex-direction: column;
 }
 
 .hint {
-  font-weight:400;
+  font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.3125rem;
-  color: #2E2E2E;
+  color: #2e2e2e;
 }
 
 input,
 select {
   margin: 0.5rem 0;
   padding: 0.875rem 1rem;
-  border: 1px solid #BCBCBC;
+  border: 1px solid #bcbcbc;
   width: 100%;
-  border: 1px solid #BCBCBC;
+  border: 1px solid #bcbcbc;
   border-radius: 4px;
 }
 
@@ -304,7 +298,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 1px;
-  text-overflow: '';
+  text-overflow: "";
   appearance: none;
 }
 select::-ms-expand {
@@ -326,6 +320,10 @@ select::-ms-expand {
 .backAndNextBtns {
   display: flex;
   justify-content: space-between;
+  height: 8rem;
+  padding-top: 5rem;
+  margin-bottom: 4.0625rem;
+  margin-top: auto;
 }
 
 .nextBtn,
@@ -334,28 +332,32 @@ select::-ms-expand {
   height: 3rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #FFFFFF;
-  background-color: #6B40E3;
+  color: #ffffff;
+  background-color: #6b40e3;
   border: none;
   border-radius: 4px;
   padding: 0.875rem 2.1875rem;
 }
 
-.nextBtn {
-  align-self: flex-end;
+.backBtn {
+  display: none;
 }
 
-.preview {
+.nextBtn {
+  margin-left: auto;
+}
+
+.resPreview {
   width: 51.375rem;
   min-height: 67.5rem;
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
-  /* display: none; */
+  background-color: #ffffff;
+  font-weight: 400;
 }
 
-.valid { 
-border: 1px solid #98E37E;
+.valid {
+  border: 1px solid #98e37e;
 }
 
 .inputAndIcons {
@@ -365,26 +367,143 @@ border: 1px solid #98E37E;
   width: 100%;
 }
 
-.validIcon, 
-.invalidIcon { 
+.validIcon,
+.invalidIcon {
   position: absolute;
+  display: none;
 }
 
-.validIcon { 
+.validIcon {
   right: 1rem;
   width: 1rem;
-
 }
 
-.invalidIcon { 
+.invalidIcon {
   right: -1.84375rem;
   width: 1.3125rem;
   /* right: 0; */
 }
 
-.valid + .validIcon { 
+.valid + .validIcon {
   display: inline-block;
 }
-.invalid + .invalidIcon { 
+.invalid + .invalidIcon {
   display: inline-block;
+}
+
+.resPreview {
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.resName {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.125rem;
+  line-height: 2.625rem;
+}
+
+hr {
+  height: 5px;
+  border-top: 1px solid black;
+}
+
+h1,
+h3 {
+  color: #f93b1d;
+  font-variant: all-small-caps;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.resPersonalInfo {
+  padding-bottom: 0.375rem;
+  position: relative;
+}
+
+.resPersonalImg {
+  position: absolute;
+  width: 15.375rem;
+  height: 15.375rem;
+  border-radius: 50%;
+  background-image: url("./assets/images/testImage.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  top: -1.25rem;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 10px;
+}
+
+.resContact {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.resAboutMeText,
+h1 {
+  max-width: 26.5rem;
+}
+
+.resMailAndIcon,
+.resPhoneNumberAndIcon {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 0.625rem;
+}
+
+.resMailIcon,
+.resPhoneIcon {
+  margin-right: 0.729375rem;
+}
+
+.resPositionAndEmployer,
+.resInstitutionAndDegree {
+  font-weight: 500;
+}
+
+.resExperienceDates,
+.resGradYear {
+  font-weight: 400;
+  font-style: italic;
+  color: #909090;
+}
+
+.resExperience,
+.resEducation {
+  border-top: 1px solid #c8c8c8;
+  padding: 0.375rem 0;
+}
+
+.resStarIcon {
+  width: 2.625rem;
+  margin-top: auto;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: flex;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.valid {
+  border: 1px solid green;
 }

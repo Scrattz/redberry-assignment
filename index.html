@@ -16,7 +16,7 @@
         />
       </div>
       <div class="newResumeAndStamp">
-        <button class="newResume">რეზიუმეს დამატება</button>
+        <button class="newResume"><span>რეზიუმეს დამატება</span></button>
         <img class="stamp" src="./assets/images/LOGO-40 1.svg" />
       </div>
     </div>
@@ -166,11 +166,11 @@
                 <input type="date" name="" id="endDate" />
               </div>
             </div>
-            <div class="experienceDescription">
-              <label for="experienceDescription">აღწერა</label>
+            <div class="aboutExperience">
+              <label for="aboutExperience">აღწერა</label>
               <textarea
                 name=""
-                id="experienceDescription"
+                id="aboutExperience"
                 cols="30"
                 rows="5"
                 placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
@@ -187,62 +187,64 @@
             <span class="pageNumber">3/3</span>
           </div>
           <div class="educationInputs">
-          <div class="institution">
-            <label for="institution">სასწავლებელი</label>
-            <div class="inputAndIcons">
-              <input
-                type="text"
-                name=""
-                id="institution"
-                placeholder="სასწავლებელი"
-              />
-              <img class="validIcon" src="./assets/images/validIcon.svg" />
-              <img class="invalidIcon" src="./assets/images/invalidIcon.svg" />
-            </div>
-            <span class="hint">მინიმუმ 2 სიმბოლო</span>
-          </div>
-          <div class="graduation">
-            <div class="graduationType column">
-              <label for="graduationType">ხარისხი</label>
-              <div class="selectAndArrow">
-                <select name="graduationType" id="graduationType">
-                  <option value="" disabled selected>აირჩიეთ ხარისხი</option>
-                  <option value="">საშუალო სკოლის დიპლომი</option>
-                  <option value="">ზოგადსაგანმანათლებლო დიპლომი</option>
-                  <option value="">ბაკალავრი</option>
-                  <option value="">მაგისტრი</option>
-                  <option value="">დოქტორი</option>
-                  <option value="">ასოცირებული ხარისხი</option>
-                  <option value="">სტუდენტი</option>
-                  <option value="">კოლეჯი (ხარისხის გარეშე)</option>
-                  <option value="">სხვა</option>
-                </select>
+            <div class="institution">
+              <label for="institution">სასწავლებელი</label>
+              <div class="inputAndIcons">
+                <input
+                  type="text"
+                  name=""
+                  id="institution"
+                  placeholder="სასწავლებელი"
+                />
+                <img class="validIcon" src="./assets/images/validIcon.svg" />
                 <img
-                  class="selectArrow"
-                  src="./assets/images/selectArrow.svg"
-                  alt=""
+                  class="invalidIcon"
+                  src="./assets/images/invalidIcon.svg"
                 />
               </div>
+              <span class="hint">მინიმუმ 2 სიმბოლო</span>
             </div>
-            <div class="graduationDate column">
-              <label for="graduationDate">დამთავრების თარიღი</label>
-              <input type="date" name="" id="graduationDate" />
+            <div class="graduation">
+              <div class="degree column">
+                <label for="degree">ხარისხი</label>
+                <div class="selectAndArrow">
+                  <select name="degree" id="graduationType">
+                    <option value="" disabled selected>აირჩიეთ ხარისხი</option>
+                    <option value="">საშუალო სკოლის დიპლომი</option>
+                    <option value="">ზოგადსაგანმანათლებლო დიპლომი</option>
+                    <option value="">ბაკალავრი</option>
+                    <option value="">მაგისტრი</option>
+                    <option value="">დოქტორი</option>
+                    <option value="">ასოცირებული ხარისხი</option>
+                    <option value="">სტუდენტი</option>
+                    <option value="">კოლეჯი (ხარისხის გარეშე)</option>
+                    <option value="">სხვა</option>
+                  </select>
+                  <img
+                    class="selectArrow"
+                    src="./assets/images/selectArrow.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="graduationDate column">
+                <label for="graduationDate">დამთავრების თარიღი</label>
+                <input type="date" name="" id="graduationDate" />
+              </div>
+            </div>
+            <div class="aboutEducation">
+              <label for="aboutEducation">აღწერა</label>
+              <textarea
+                name=""
+                id="aboutEducation"
+                cols="30"
+                rows="5"
+                placeholder="აღწერე შენი განათლება"
+              ></textarea>
             </div>
           </div>
-          <div class="educationDescription">
-            <label for="educationDescription">აღწერა</label>
-            <textarea
-              name=""
-              id="educationDescription"
-              cols="30"
-              rows="5"
-              placeholder="აღწერე შენი განათლება"
-            ></textarea>
-          </div>
-        </div>
 
           <button class="addInstitution">სხვა სასწავლებლის დამატება</button>
-
         </form>
 
         <div class="backAndNextBtns">
@@ -251,7 +253,79 @@
         </div>
       </div>
 
-      <div class="preview"></div>
+            <div class="resPreview">
+        <div class="resPersonalInfo">
+          <h1 class="resName">
+            <span class="resFirstName">ანზორ</span>
+            <span class="resLastName">მუმლაძე</span>
+          </h1>
+          <div class="resContact">
+            <div class="resMailAndIcon">
+              <img class="resMailIcon" src="./assets/images/mailIcon.svg" alt="" />
+              <span class="resMail">anzor666@redberry.ge</span>
+            </div>
+            <div class="resPhoneNumberAndIcon">
+              <img
+                class="resPhoneIcon"
+                src="./assets/images/phoneIcon.svg"
+                alt=""
+              />
+              <span class="resPhoneNumber">+995 123 45 67 89</span>
+            </div>
+          </div>
+          <div class="resAboutMe">
+            <h3 class="resAboutMeHeading">ჩემ შესახებ</h3>
+            <p class="resAboutMeText">
+              ძალიან მიყვარს დიზაინის კეთება. დილით ადრე რომ ავდგები
+              გამამხნევებელი ვარჯიშების მაგიერ დიზაინს ვაკეთებ.
+            </p>
+          </div>
+          <div class="resPersonalImg"></div>          
+        </div>
+        <div class="resExperience">
+          <h3 class="resExperienceHeading">გამოცდილება</h3>
+          <div class="resPositionAndDates">
+            <div class="resPositionAndEmployer">
+              <span class="resPosition">React Native Developer</span>,
+              <span class="resEmployer">Microsoft</span>
+            </div>
+            <div class="resExperienceDates">
+              <span class="resStartDate">2020-09-23</span> -
+              <span class="resEndDate">2020-09-23</span>
+            </div>
+          </div>
+          <p class="resAboutExperience">
+            Experienced Javascript Native Developer with 5 years in the
+            industry. proficient withreact. Used problem-solving aptitude to
+            encahge application performance by 14%. created data visualisation
+            tools and integrated designs.
+          </p>
+        </div>
+        <div class="resEducation">
+          <h3 class="resEducationHeading">განათლება</h3>
+          <div class="resInstitutionAndDates">
+            <div class="resInstitutionAndDegree">
+              <span class="resinstitution"
+                >წმ. ანდრიას საპატრიარქოს სასწავლებელი</span
+              >,
+              <span class="resDegree">სტუდენტი</span>
+            </div>
+            <div class="resGradYear">
+              <span class="resStartDate">2020-09-09</span>
+            </div>
+          </div>
+          <p class="resAboutEducation">
+            ვსწავლობდი გულმოდგინეთ. მყავდა ფრიადები. რაც შემეძლო — ვქენი.
+            კომპიუტერები მიყვარდა. ვიჯექი ჩემთვის, ვაკაკუნებდი ამ კლავიშებზე.
+            მეუნებოდნენ — დაჯექი, წაიკითხე რამე, რას აკაკუნებ, დრო მოვა და
+            ჩაგიკაკუნებსო. აჰა, მოვიდა დრო და ვერა ვარ დეველოპერი?
+          </p>
+        </div>
+        <img class="resStarIcon" src="./assets/images/starIcon.svg" alt="">
+      </div>
+      
     </section>
+
+    <script src="./app.js"></script>
   </body>
 </html>
