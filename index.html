@@ -66,29 +66,29 @@
           </div>
           <div class="uploadImage">
             <h4 class="imgInputLabel">პირადი ფოტოს ატვირთვა</h4>
-            <label class="imgInput" for="imgInput"
-              >ატვირთვა<input type="file" id="imgInput" />
+            <label class="imgInput" for="img"
+              >ატვირთვა<input type="file" id="img" />
             </label>
           </div>
           <div class="aboutMe">
-            <label class="inputLabel" for="aboutMeInput"
+            <label class="inputLabel" for="aboutMe"
               >ჩემ შესახებ (არასავალდებულო)</label
             >
             <textarea
               name=""
-              id="aboutMeInput"
+              id="aboutMe"
               cols="30"
               rows="5"
               placeholder="ზოგადი ინფო შენ შესახებ"
             ></textarea>
           </div>
           <div class="email">
-            <label class="inputLabel" for="emailInput">ელ.ფოსტა</label>
+            <label class="inputLabel" for="email">ელ.ფოსტა</label>
             <div class="inputAndIcons">
               <input
                 type="email"
                 name=""
-                id="emailInput"
+                id="email"
                 placeholder="testemail@redberry.ge"
               />
               <img class="validIcon" src="./assets/images/validIcon.svg" />
@@ -97,14 +97,14 @@
             <span class="hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
           <div class="phoneNumber">
-            <label class="inputLabel" for="phoneNumberInput"
+            <label class="inputLabel" for="phoneNumber"
               >მობილურის ნომერი</label
             >
             <div class="inputAndIcons">
               <input
                 type="tel"
                 name=""
-                id="phoneNumberInput"
+                id="phoneNumber"
                 placeholder="+995 5XX XX XX XX"
               />
               <img class="validIcon" src="./assets/images/validIcon.svg" />
@@ -177,64 +177,8 @@
               ></textarea>
             </div>
           </div>
-          <div class="experienceInputs">
-            <div class="position ">
-              <label for="position">თანამდებობა</label>
-              <div class="inputAndIcons">
-                <input
-                  type="text"
-                  name=""
-                  id="position"
-                  placeholder="თანამდებობა"
-                />
-                <img class="validIcon" src="./assets/images/validIcon.svg" />
-                <img
-                  class="invalidIcon"
-                  src="./assets/images/invalidIcon.svg"
-                />
-              </div>
-              <span class="hint">მინიმუმ 2 სიმბოლო</span>
-            </div>
-            <div class="employer">
-              <label for="employer">დამსაქმებელი</label>
-              <div class="inputAndIcons">
-                <input
-                  type="text"
-                  name=""
-                  id="employer"
-                  placeholder="დამსაქმებელი"
-                />
-                <img class="validIcon" src="./assets/images/validIcon.svg" />
-                <img
-                  class="invalidIcon"
-                  src="./assets/images/invalidIcon.svg"
-                />
-              </div>
-              <span class="hint">მინიმუმ 2 სიმბოლო</span>
-            </div>
-            <div class="experiencePeriod">
-              <div class="startDate column">
-                <label for="startDate">დაწყების თარიღი</label>
-                <input type="date" name="" id="startDate" />
-              </div>
-              <div class="endDate column">
-                <label for="endDate">დმთავრების თარიღი</label>
-                <input type="date" name="" id="endDate" />
-              </div>
-            </div>
-            <div class="aboutExperience">
-              <label for="aboutExperience">აღწერა</label>
-              <textarea
-                name=""
-                id="aboutExperience"
-                cols="30"
-                rows="5"
-                placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
-              ></textarea>
-            </div>
-          </div>
-
           <button class="addExperience">მეტი გამოცდილების დამატება</button>
+          
         </form>
 
         <form class="education">
@@ -262,7 +206,7 @@
             </div>
             <div class="graduation">
               <div class="degree column">
-                <label for="degree">ხარისხი</label>
+                <label for="degreeType">ხარისხი</label>
                 <div class="selectAndArrow">
                   <select name="degree" id="degreeType">
                     <option value="" disabled selected>აირჩიეთ ხარისხი</option>
@@ -284,8 +228,8 @@
                 </div>
               </div>
               <div class="graduationDate column">
-                <label for="graduationDate">დამთავრების თარიღი</label>
-                <input type="date" name="" id="graduationDate" />
+                <label for="gradDate">დამთავრების თარიღი</label>
+                <input type="date" name="" id="gradDate" />
               </div>
             </div>
             <div class="aboutEducation">
@@ -299,64 +243,6 @@
               ></textarea>
             </div>
           </div>
-          <div class="educationInputs">
-            <div class="institution">
-              <label for="institution">სასწავლებელი</label>
-              <div class="inputAndIcons">
-                <input
-                  type="text"
-                  name=""
-                  id="institution"
-                  placeholder="სასწავლებელი"
-                />
-                <img class="validIcon" src="./assets/images/validIcon.svg" />
-                <img
-                  class="invalidIcon"
-                  src="./assets/images/invalidIcon.svg"
-                />
-              </div>
-              <span class="hint">მინიმუმ 2 სიმბოლო</span>
-            </div>
-            <div class="graduation">
-              <div class="degree column">
-                <label for="degree">ხარისხი</label>
-                <div class="selectAndArrow">
-                  <select name="degree" id="degreeType">
-                    <option value="" disabled selected>აირჩიეთ ხარისხი</option>
-                    <option value="">საშუალო სკოლის დიპლომი</option>
-                    <option value="">ზოგადსაგანმანათლებლო დიპლომი</option>
-                    <option value="">ბაკალავრი</option>
-                    <option value="">მაგისტრი</option>
-                    <option value="">დოქტორი</option>
-                    <option value="">ასოცირებული ხარისხი</option>
-                    <option value="">სტუდენტი</option>
-                    <option value="">კოლეჯი (ხარისხის გარეშე)</option>
-                    <option value="">სხვა</option>
-                  </select>
-                  <img
-                    class="selectArrow"
-                    src="./assets/images/selectArrow.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="graduationDate column">
-                <label for="graduationDate">დამთავრების თარიღი</label>
-                <input type="date" name="" id="graduationDate" />
-              </div>
-            </div>
-            <div class="aboutEducation">
-              <label for="aboutEducation">აღწერა</label>
-              <textarea
-                name=""
-                id="aboutEducation"
-                cols="30"
-                rows="5"
-                placeholder="აღწერე შენი განათლება"
-              ></textarea>
-            </div>
-          </div>
-
           <button class="addInstitution">სხვა სასწავლებლის დამატება</button>
         </form>
 
@@ -369,8 +255,8 @@
       <div class="resPreview">
         <div class="resPersonalInfo">
           <h1 class="resName">
-            <span class="resFirstName">ანზორ</span>
-            <span class="resLastName">მუმლაძე</span>
+            <span class="firstNameRes resItem">ანზორ</span>
+            <span class="lastNameRes resItem">მუმლაძე</span>
           </h1>
           <div class="resContact">
             <div class="resMailAndIcon">
@@ -379,7 +265,7 @@
                 src="./assets/images/mailIcon.svg"
                 alt=""
               />
-              <span class="resMail">anzor666@redberry.ge</span>
+              <span class="emailRes resItem">anzor666@redberry.ge</span>
             </div>
             <div class="resPhoneNumberAndIcon">
               <img
@@ -387,31 +273,31 @@
                 src="./assets/images/phoneIcon.svg"
                 alt=""
               />
-              <span class="resPhoneNumber">+995 123 45 67 89</span>
+              <span class="phoneNumberRes resItem">+995 123 45 67 89</span>
             </div>
           </div>
           <div class="resAboutMe">
             <h3 class="resAboutMeHeading">ჩემ შესახებ</h3>
-            <p class="resAboutMeText">
+            <p class="AboutMeRes resItem">
               ძალიან მიყვარს დიზაინის კეთება. დილით ადრე რომ ავდგები
               გამამხნევებელი ვარჯიშების მაგიერ დიზაინს ვაკეთებ.
             </p>
           </div>
-          <div class="resPersonalImg"></div>
+          <div class="imgRes resItem"></div>
         </div>
         <div class="resExperience">
           <h3 class="resExperienceHeading">გამოცდილება</h3>
           <div class="resPositionAndDates">
             <div class="resPositionAndEmployer">
-              <span class="resPosition">React Native Developer</span>,
-              <span class="resEmployer">Microsoft</span>
+              <span class="positionRes resItem">React Native Developer</span>,
+              <span class="employerRes resItem">Microsoft</span>
             </div>
             <div class="resExperienceDates">
-              <span class="resStartDate">2020-09-23</span> -
-              <span class="resEndDate">2020-09-23</span>
+              <span class="startDateRes resItem">2020-09-23</span> -
+              <span class="endDateRes resItem">2020-09-23</span>
             </div>
           </div>
-          <p class="resAboutExperience">
+          <p class="aboutExperienceRes resItem">
             Experienced Javascript Native Developer with 5 years in the
             industry. proficient withreact. Used problem-solving aptitude to
             encahge application performance by 14%. created data visualisation
@@ -422,16 +308,16 @@
           <h3 class="resEducationHeading">განათლება</h3>
           <div class="resInstitutionAndDates">
             <div class="resInstitutionAndDegree">
-              <span class="resinstitution"
+              <span class="institutionRes resItem"
                 >წმ. ანდრიას საპატრიარქოს სასწავლებელი</span
               >,
-              <span class="resDegree">სტუდენტი</span>
+              <span class="degreeTypeRes resItem">სტუდენტი</span>
             </div>
             <div class="resGradYear">
-              <span class="resStartDate">2020-09-09</span>
+              <span class="gradDateRes resItem">2020-09-09</span>
             </div>
           </div>
-          <p class="resAboutEducation">
+          <p class="aboutEducationRes resItem">
             ვსწავლობდი გულმოდგინეთ. მყავდა ფრიადები. რაც შემეძლო — ვქენი.
             კომპიუტერები მიყვარდა. ვიჯექი ჩემთვის, ვაკაკუნებდი ამ კლავიშებზე.
             მეუნებოდნენ — დაჯექი, წაიკითხე რამე, რას აკაკუნებ, დრო მოვა და
@@ -442,7 +328,7 @@
       </div>
     </section>
 
-    <!-- <script src="./app.js"></script> -->
-    <script src="./testfile.js"></script>
+    <script src="./app.js"></script>
+    <!-- <script src="./testfile.js"></script> -->
   </body>
 </html>

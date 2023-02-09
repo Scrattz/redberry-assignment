@@ -154,7 +154,7 @@ body {
   margin-bottom: 3.0625rem;
 }
 
-#imgInput {
+#img {
   display: none;
 }
 
@@ -440,7 +440,7 @@ h3 {
   position: relative;
 }
 
-.resPersonalImg {
+.imgRes {
   position: absolute;
   width: 15.375rem;
   height: 15.375rem;
@@ -459,7 +459,7 @@ h3 {
   font-size: 1.125rem;
 }
 
-.resAboutMeText,
+.AboutMeRes,
 h1 {
   max-width: 26.5rem;
 }
