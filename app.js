@@ -154,34 +154,38 @@ window.addEventListener("click", (e) => {
       formsAndPreview.classList.add("show");
     } else if (elem === addExpBtn) {
       e.preventDefault();
-      let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
-      newExperienceInputs.classList.remove("experienceInputsTemplate");
+      // let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
+      // newExperienceInputs.classList.remove("experienceInputsTemplate");
 
-      let newExperienceInputsObj = getExperienceTemplate();
-      for (const [key, value] of Object.entries(newExperienceInputsObj)) {
-        let newExperienceInput = newExperienceInputs.querySelector(
-          "#" + value.id
-        );
-        let newExperienceLabel = newExperienceInputs.querySelector(
-          `[for=${value.id}]`
-        );
-        value.id = `${value.id}${sessionObj.experiences.length + 1}`;
-        newExperienceInput.id = value.id;
-        newExperienceLabel.setAttribute("for", value.id);
-      }
-      experience.insertBefore(newExperienceInputs, addExpBtn);
-      for (const [key, value] of Object.entries(newExperienceInputsObj)) {
-        addListenersAndUpdate(key, value);
-      }
+      // let newExperienceInputsObj = getExperienceTemplate();
+      // for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+      //   let newExperienceInput = newExperienceInputs.querySelector(
+      //     "#" + value.id
+      //   );
+      //   let newExperienceLabel = newExperienceInputs.querySelector(
+      //     `[for=${value.id}]`
+      //   );
+      //   value.id = `${value.id}${sessionObj.experiences.length + 1}`;
+      //   newExperienceInput.id = value.id;
+      //   newExperienceLabel.setAttribute("for", value.id);
+      // }
+      // experience.insertBefore(newExperienceInputs, addExpBtn);
+      // for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+      //   addListenersAndUpdate(key, value);
+      // }
 
-      sessionObj.experiences.push(newExperienceInputsObj);
-      const sessionObjJSON = JSON.stringify(sessionObj);
-      sessionStorage.setItem("formData", sessionObjJSON);
+      // sessionObj.experiences.push(newExperienceInputsObj);
+      // const sessionObjJSON = JSON.stringify(sessionObj);
+      // sessionStorage.setItem("formData", sessionObjJSON);
+
+      createNewExpInputs(sessionObj.experiences.length + 1, true);
+
     }
-    // educationistvis igive dasaweri
-    // else if (elem === addInstBtn) {
-    //   e.preventDefault();
-    // }
+    // educationistvis igive 
+    else if (elem === addInstBtn) {
+      e.preventDefault();
+      createNewEduInputs(sessionObj.educations.length + 1, true);
+    }
   }
 });
 
@@ -206,28 +210,94 @@ const addListenersAndUpdate = (key, value) => {
   // });
 };
 
-if (sessionObj.experiences.length === 0) {
+const createNewExpInputs = (num, shouldUpdate) => {
   let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
   newExperienceInputs.classList.remove("experienceInputsTemplate");
 
-  let newExperienceInputsObj = getExperienceTemplate();
-  for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+  let newExperienceObj = getExperienceTemplate();
+  for (const [key, value] of Object.entries(newExperienceObj)) {
     let newExperienceInput = newExperienceInputs.querySelector("#" + value.id);
     let newExperienceLabel = newExperienceInputs.querySelector(
       `[for=${value.id}]`
     );
-    value.id = `${value.id}${1}`;
+    value.id = `${value.id}${num}`;
     newExperienceInput.id = value.id;
     newExperienceLabel.setAttribute("for", value.id);
   }
 
-  sessionObj.experiences.push(newExperienceInputsObj);
-  const sessionObjJSON = JSON.stringify(sessionObj);
-  sessionStorage.setItem("formData", sessionObjJSON);
+  if (shouldUpdate) {
+    console.log("inShouldUpdate");
+    sessionObj.experiences.push(newExperienceObj);
+    const sessionObjJSON = JSON.stringify(sessionObj);
+    sessionStorage.setItem("formData", sessionObjJSON);
+  }
+
   experience.insertBefore(newExperienceInputs, addExpBtn);
-  for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+  for (const [key, value] of Object.entries(newExperienceObj)) {
     addListenersAndUpdate(key, value);
   }
+
+  console.log("end of exp function");
+};
+
+const createNewEduInputs = (num, shouldUpdate) => {
+  let newEducationInputs = educationInputsTemplate.cloneNode(true);
+  newEducationInputs.classList.remove("educationInputsTemplate");
+
+  let newEducationObj = getEducationTemplate();
+
+  console.log(newEducationObj);
+
+  for (const [key, value] of Object.entries(newEducationObj)) {
+    let newEducationInput = newEducationInputs.querySelector("#" + value.id);
+    let newEducationLabel = newEducationInputs.querySelector(
+      `[for=${value.id}]`
+    );
+    value.id = `${value.id}${num}`;
+    newEducationInput.id = value.id;
+    newEducationLabel.setAttribute("for", value.id);
+  }
+
+  if (shouldUpdate) {
+    console.log("inShouldUpdate");
+    sessionObj.educations.push(newEducationObj);
+    const sessionObjJSON = JSON.stringify(sessionObj);
+    sessionStorage.setItem("formData", sessionObjJSON);
+  }
+
+  education.insertBefore(newEducationInputs, addInstBtn);
+  for (const [key, value] of Object.entries(newEducationObj)) {
+    addListenersAndUpdate(key, value);
+  }
+
+  console.log("end of inst function");
+};
+
+if (sessionObj.experiences.length === 0) {
+  // let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
+  // newExperienceInputs.classList.remove("experienceInputsTemplate");
+
+  // let newExperienceInputsObj = getExperienceTemplate();
+  // for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+  //   let newExperienceInput = newExperienceInputs.querySelector("#" + value.id);
+  //   let newExperienceLabel = newExperienceInputs.querySelector(
+  //     `[for=${value.id}]`
+  //   );
+  //   value.id = `${value.id}${1}`;
+  //   newExperienceInput.id = value.id;
+  //   newExperienceLabel.setAttribute("for", value.id);
+  // }
+
+  // sessionObj.experiences.push(newExperienceInputsObj);
+  // const sessionObjJSON = JSON.stringify(sessionObj);
+  // sessionStorage.setItem("formData", sessionObjJSON);
+  // experience.insertBefore(newExperienceInputs, addExpBtn);
+  // for (const [key, value] of Object.entries(newExperienceInputsObj)) {
+  //   addListenersAndUpdate(key, value);
+  // }
+
+  createNewExpInputs(1, true);
+
 } else {
   for (let i = 0; i < sessionObj.experiences.length; i++) {
     let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
@@ -247,10 +317,32 @@ if (sessionObj.experiences.length === 0) {
     for (const [key, value] of Object.entries(currentExperienceObj)) {
       addListenersAndUpdate(key, value);
     }
-
   }
+      // aq createNewExpInputs("", false) functions ver viyeneb radgan getExperienceTemplate ar mchirdeba aq;
+
 }
 
+if (sessionObj.educations.length === 0) {
+  createNewEduInputs(1, true);
+} else {
+  for (let i = 0; i < sessionObj.educations.length; i++) {
+    let newEducationInputs = educationInputsTemplate.cloneNode(true);
+    newEducationInputs.classList.remove("educationInputsTemplate");
+    let currentEducationObj = sessionObj.educations[i];
+    for (const [key, value] of Object.entries(currentEducationObj)) {
+      let newEducationInput = newEducationInputs.querySelector("#" + key);
+      let newEducationLabel = newEducationInputs.querySelector(`[for=${key}]`);
+
+      newEducationInput.id = value.id;
+      newEducationLabel.setAttribute("for", value.id);
+    }
+
+    education.insertBefore(newEducationInputs, addInstBtn);
+    for (const [key, value] of Object.entries(currentEducationObj)) {
+      addListenersAndUpdate(key, value);
+    }
+  }
+}
 
 phoneNumber.addEventListener("keydown", (e) => {
   if (
