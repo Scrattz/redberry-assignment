@@ -67,7 +67,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   min-width: 120rem;
-  /* display: none; */
+  display: none;
 }
 .forms {
   position: relative;
@@ -94,9 +94,8 @@ body {
 }
 
 .personalInfo {
-  display: flex;
+  display: none;
   flex-direction: column;
-  /* display: none; */
 }
 
 .personalInfoHeader,
@@ -203,7 +202,7 @@ body {
 }
 
 .experience {
-  /* display: none; */
+  display: none;
   flex-direction: column;
 }
 
@@ -255,7 +254,7 @@ body {
 }
 
 .education {
-  /* display: none; */
+  display: none;
   flex-direction: column;
 }
 
@@ -292,7 +291,8 @@ body {
 }
 
 input,
-select {
+select,
+textarea {
   margin: 0.5rem 0;
   padding: 0.875rem 1rem;
   border: 1px solid #bcbcbc;
@@ -334,7 +334,8 @@ select::-ms-expand {
 }
 
 .nextBtn,
-.backBtn {
+.backBtn,
+.submitBtn {
   width: auto;
   height: 3rem;
   font-size: 1rem;
@@ -344,6 +345,7 @@ select::-ms-expand {
   border: none;
   border-radius: 4px;
   padding: 0.875rem 2.1875rem;
+  cursor: pointer;
 }
 
 .backBtn {
@@ -351,6 +353,12 @@ select::-ms-expand {
 }
 
 .nextBtn {
+  display: none;
+  margin-left: auto;
+}
+
+.submitBtn {
+  display: none;
   margin-left: auto;
 }
 
@@ -388,7 +396,6 @@ select::-ms-expand {
 .invalidIcon {
   right: -1.84375rem;
   width: 1.3125rem;
-  /* right: 0; */
 }
 
 .valid + .validIcon {
@@ -445,7 +452,7 @@ h3 {
   width: 15.375rem;
   height: 15.375rem;
   border-radius: 50%;
-  background-image: url("./assets/images/testImage.jpeg");
+  background-image: url("");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -459,9 +466,9 @@ h3 {
   font-size: 1.125rem;
 }
 
-.AboutMeRes,
+.aboutMeRes,
 h1 {
-  max-width: 26.5rem;
+  max-width: 26.5rem !important;
 }
 
 .resMailAndIcon,
@@ -493,11 +500,16 @@ h1 {
 .resEducation {
   border-top: 1px solid #c8c8c8;
   padding: 0.375rem 0;
+  display: none;
 }
 
 .resStarIcon {
   width: 2.625rem;
   margin-top: auto;
+}
+
+.resItem { 
+  display: none;
 }
 
 .hide {
