@@ -371,9 +371,6 @@ select::-ms-expand {
   font-weight: 400;
 }
 
-.valid {
-  border: 1px solid #98e37e;
-}
 
 .inputAndIcons {
   position: relative;
@@ -398,12 +395,22 @@ select::-ms-expand {
   width: 1.3125rem;
 }
 
-.valid + .validIcon {
+.valid ~ .validIcon {
   display: inline-block;
 }
-.invalid + .invalidIcon {
+
+.invalid ~ .invalidIcon {
   display: inline-block;
 }
+
+.valid {
+  border: 1px solid #98e37e;
+}
+
+.invalid {
+  border: 1px solid #EF5050;
+}
+
 
 .resPreview {
   padding: 3rem 5rem;
@@ -482,6 +489,11 @@ h1 {
 .resMailIcon,
 .resPhoneIcon {
   margin-right: 0.729375rem;
+  display: none;
+}
+
+.resAboutMeHeading {
+  display: none;
 }
 
 .resPositionAndEmployer,
@@ -519,10 +531,7 @@ h1 {
   display: flex;
 }
 
-.invalid {
-  border: 1px solid red;
+.directionColumn {
+  flex-direction: column;
 }
 
-.valid {
-  border: 1px solid green;
-}

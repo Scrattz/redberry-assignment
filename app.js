@@ -20,12 +20,14 @@ const goToLandingPage = document.querySelector(".goToLandingPage");
 const nextBtn = document.querySelector(".nextBtn");
 const backBtn = document.querySelector(".backBtn");
 const submitBtn = document.querySelector(".submitBtn");
+const selectElement = document.getElementById("degreeType");
+const apiBaseURL = "https://resume.redberryinternship.ge/api";
 
 const getEducationTemplate = () => {
   return {
     institution: {
       id: "institution",
-      validationType: "textType",
+      validationType: "textAreaType",
       value: "",
       isValid: false,
       wasEdited: false,
@@ -46,7 +48,7 @@ const getEducationTemplate = () => {
     },
     aboutEducation: {
       id: "aboutEducation",
-      validationType: "textType",
+      validationType: "textAreaType",
       value: "",
       isValid: false,
       wasEdited: false,
@@ -58,21 +60,21 @@ const getExperienceTemplate = () => {
   return {
     position: {
       id: "position",
-      validationType: "textType",
+      validationType: "textAreaType",
       value: "",
       isValid: false,
       wasEdited: false,
     },
     employer: {
       id: "employer",
-      validationType: "textType",
+      validationType: "textAreaType",
       value: "",
       isValid: false,
       wasEdited: false,
     },
     startDate: {
       id: "startDate",
-      validationType: "timeFrameType",
+      validationType: "dateType",
       value: "",
       isValid: false,
       wasEdited: false,
@@ -86,7 +88,7 @@ const getExperienceTemplate = () => {
     },
     aboutExperience: {
       id: "aboutExperience",
-      validationType: "textType",
+      validationType: "textAreaType",
       value: "",
       isValid: false,
       wasEdited: false,
@@ -118,7 +120,7 @@ let sessionObj = {
   },
   phoneNumber: {
     id: "phoneNumber",
-    validationType: "numberType",
+    validationType: "phoneNumberType",
     value: "",
     isValid: false,
     wasEdited: false,
@@ -134,7 +136,7 @@ let sessionObj = {
   },
   aboutMe: {
     id: "aboutMe",
-    validationType: "textType",
+    validationType: "textAreaNotRequired",
     value: "",
     isValid: false,
     wasEdited: false,
@@ -146,23 +148,48 @@ let sessionObj = {
   },
 };
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionObj.currentPage.personalInfo === true) {
     showFormsAndPreview();
     handleShowAndHidePersonalInfoForm("show");
     nextBtn.classList.add("show");
+    for (const [key, value] of Object.entries(sessionObj)) {
+      if (
+        value !== "experiences" &&
+        value !== "educations" &&
+        value !== "currentPage"
+      ) {
+        let inputElement = document.querySelector(`#${value.id}`);
+        validateInputs(inputElement, value.validationType);
+      }
+    }
     return;
   } else if (sessionObj.currentPage.experience === true) {
     showFormsAndPreview();
     handleShowAndHideExperienceForm("show");
     backBtn.classList.add("show");
     nextBtn.classList.add("show");
+    for (const objects of sessionObj.experiences) {
+      for (const [key, value] of Object.entries(objects)) {
+        let inputElement = document.querySelector(`#${value.id}`);
+        validateInputs(inputElement, value.validationType);
+      }
+    }
     return;
   } else if (sessionObj.currentPage.education === true) {
     showFormsAndPreview();
     handleShowAndHideEducationForm("show");
     backBtn.classList.add("show");
     submitBtn.classList.add("show");
+    for (const objects of sessionObj.educations) {
+      for (const [ke, value] of Object.entries(objects)) {
+        let inputElement = document.querySelector(`#${value.id}`);
+        validateInputs(inputElement, value.validationType);
+      }
+    }
+
     return;
   }
   landingPage.classList.add("show");
@@ -174,15 +201,18 @@ const updateFormData = () => {
   const sessionObjJSON = JSON.stringify(sessionObj);
   sessionStorage.setItem("formData", sessionObjJSON);
 };
+
 if (sessionInfo === null) {
   updateFormData();
 } else {
   sessionObj = JSON.parse(sessionInfo);
 }
+
 const showFormsAndPreview = () => {
   landingPage.classList.remove("show");
   formsAndPreview.classList.add("show");
 };
+
 const handleShowAndHidePersonalInfoForm = (condition) => {
   if (condition === "show") {
     personalInfo.classList.add("show");
@@ -210,7 +240,7 @@ const handleShowAndHideEducationForm = (condition) => {
     education.classList.add("show");
     sessionObj.currentPage.education = true;
   } else if (condition === "hide") {
-    education.classList.remove("show");
+    education.classList.remove("show", ".directionColumn");
     sessionObj.currentPage.education = false;
   }
   updateFormData();
@@ -219,12 +249,6 @@ const handleShowAndHideEducationForm = (condition) => {
 window.addEventListener("click", (e) => {
   for (let elem of e.composedPath()) {
     if (elem === newResumeBtn) {
-      // landingPage.classList.add("hide");
-      // formsAndPreview.classList.add("show");
-      // personalInfo.classList.add("show");
-      // nextBtn.classList.add("show");
-      // sessionObj.currentPage.personalInfo = true;
-      // updateFormData();
       showFormsAndPreview();
       handleShowAndHidePersonalInfoForm("show");
       nextBtn.classList.add("show");
@@ -258,9 +282,7 @@ window.addEventListener("click", (e) => {
       // sessionStorage.setItem("formData", sessionObjJSON);
 
       createNewExpInputs(sessionObj.experiences.length + 1, true);
-    }
-    // educationistvis igive
-    else if (elem === addInstBtn) {
+    } else if (elem === addInstBtn) {
       e.preventDefault();
       createNewEduInputs(sessionObj.educations.length + 1, true);
     } else if (elem === nextBtn) {
@@ -285,20 +307,7 @@ window.addEventListener("click", (e) => {
         submitBtn.classList.remove("show");
         nextBtn.classList.add("show");
       }
-    }
-  }
-});
-
-phoneNumber.addEventListener("keydown", (e) => {
-  if (
-    e.key !== "+" &&
-    e.key !== "Backspace" &&
-    e.key !== "ArrowLeft" &&
-    e.key !== "ArrowRight" &&
-    e.key !== " " &&
-    isNaN(parseInt(e.key))
-  ) {
-    e.preventDefault();
+    } 
   }
 });
 
@@ -315,12 +324,15 @@ const addListenersAndUpdate = (key, value) => {
     // updates info in resPreview
     for (let item of resItems) {
       if (item.classList.contains(`${key}Res`)) {
-        console.dir(item);
+        if (item.previousElementSibling) {
+          item.previousElementSibling.classList.add("show");
+        }
         item.classList.add("show");
         item.innerHTML = e.target.value;
       }
     }
     updateFormData();
+    validateInputs(e.target, value.validationType);
   });
 
   inputElement.addEventListener("blur", (e) => {
@@ -331,7 +343,6 @@ const addListenersAndUpdate = (key, value) => {
 const createNewExpInputs = (num, shouldUpdate) => {
   let newExperienceInputs = experienceInputsTemplate.cloneNode(true);
   newExperienceInputs.classList.remove("experienceInputsTemplate");
-
   let newExperienceObj = getExperienceTemplate();
   for (const [key, value] of Object.entries(newExperienceObj)) {
     let newExperienceInput = newExperienceInputs.querySelector("#" + value.id);
@@ -344,7 +355,6 @@ const createNewExpInputs = (num, shouldUpdate) => {
   }
 
   if (shouldUpdate) {
-    console.log("inShouldUpdate");
     sessionObj.experiences.push(newExperienceObj);
     updateFormData();
   }
@@ -353,8 +363,6 @@ const createNewExpInputs = (num, shouldUpdate) => {
   for (const [key, value] of Object.entries(newExperienceObj)) {
     addListenersAndUpdate(key, value);
   }
-
-  console.log("end of exp function");
 };
 
 const createNewEduInputs = (num, shouldUpdate) => {
@@ -362,8 +370,6 @@ const createNewEduInputs = (num, shouldUpdate) => {
   newEducationInputs.classList.remove("educationInputsTemplate");
 
   let newEducationObj = getEducationTemplate();
-
-  console.log(newEducationObj);
 
   for (const [key, value] of Object.entries(newEducationObj)) {
     let newEducationInput = newEducationInputs.querySelector("#" + value.id);
@@ -376,7 +382,6 @@ const createNewEduInputs = (num, shouldUpdate) => {
   }
 
   if (shouldUpdate) {
-    console.log("inShouldUpdate");
     sessionObj.educations.push(newEducationObj);
     updateFormData();
   }
@@ -385,8 +390,6 @@ const createNewEduInputs = (num, shouldUpdate) => {
   for (const [key, value] of Object.entries(newEducationObj)) {
     addListenersAndUpdate(key, value);
   }
-
-  console.log("end of inst function");
 };
 
 if (sessionObj.experiences.length === 0) {
@@ -427,7 +430,6 @@ if (sessionObj.experiences.length === 0) {
       newExperienceInput.id = value.id;
       newExperienceLabel.setAttribute("for", value.id);
     }
-
     experience.insertBefore(newExperienceInputs, addExpBtn);
     for (const [key, value] of Object.entries(currentExperienceObj)) {
       addListenersAndUpdate(key, value);
@@ -463,3 +465,115 @@ for (const [key, value] of Object.entries(sessionObj)) {
     addListenersAndUpdate(key, value);
   }
 }
+
+phoneNumber.addEventListener("keydown", (e) => {
+  if (
+    e.key !== "+" &&
+    e.key !== "Backspace" &&
+    e.key !== "ArrowLeft" &&
+    e.key !== "ArrowRight" &&
+    e.key !== " " &&
+    isNaN(parseInt(e.key))
+  ) {
+    e.preventDefault();
+  }
+});
+
+const startDateInputElement = document.querySelector("#startDate1");
+const classCheckAndRemove = (inputElement) => {
+  if (inputElement.classList.contains("invalid")) {
+    inputElement.classList.remove("invalid");
+  } else if (inputElement.classList.contains("valid")) {
+    inputElement.classList.remove("valid");
+  }
+};
+const validateInputs = (inputElement, validationType) => {
+  if (validationType === "textAreaType") {
+    if (inputElement.value.length >= 2) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "textAreaNotRequired") {
+    if (inputElement.value) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      inputElement.classList.remove("valid");
+    }
+  } else if (validationType === "phoneNumberType") {
+    let phoneNum = inputElement.value;
+    let arr = phoneNum.split(" ");
+    for (let elem of arr) {
+      if (isNaN(parseInt(elem))) {
+        let index = arr.indexOf(elem);
+        arr.splice(index, 1);
+        phoneNum = arr.join("");
+      }
+    }
+    if (phoneNum.startsWith("+995") && phoneNum.length === 13) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "nameType") {
+    if (
+      /^[ა-ჰ-.]*$/.test(inputElement.value) &&
+      inputElement.value.length >= 2
+    ) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "mailType") {
+    if (/^[a-zA-Z0-9._]+@redberry.ge$/.test(inputElement.value)) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "selectionType") {
+    if (inputElement.value) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "imgType") {
+    if (inputElement.value) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("validImg");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalidImg");
+    }
+  } else if (validationType === "dateType") {
+    if (inputElement.value) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  } else if (validationType === "timeFrameType") {
+    let startDateString = startDateInputElement.value;
+    let endDateString = inputElement.value;
+    let startDateTime = new Date(startDateString).getTime();
+    let endDateTime = new Date(endDateString).getTime();
+    if (startDateTime < endDateTime) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("valid");
+    } else if (startDateTime >= endDateTime) {
+      classCheckAndRemove(inputElement);
+      inputElement.classList.add("invalid");
+    }
+  }
+};
