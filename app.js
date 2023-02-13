@@ -15,7 +15,9 @@ const educationInputsTemplate = document.querySelector(
 const addExpBtn = document.querySelector(".addExperience");
 const addInstBtn = document.querySelector(".addInstitution");
 const experience = document.querySelector(".experience");
+const resExperience = document.querySelector(".resExperience");
 const education = document.querySelector(".education");
+const resEducation = document.querySelector(".resEducation");
 const goToLandingPage = document.querySelector(".goToLandingPage");
 const nextBtn = document.querySelector(".nextBtn");
 const backBtn = document.querySelector(".backBtn");
@@ -147,8 +149,6 @@ let sessionObj = {
     education: false,
   },
 };
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionObj.currentPage.personalInfo === true) {
@@ -307,7 +307,7 @@ window.addEventListener("click", (e) => {
         submitBtn.classList.remove("show");
         nextBtn.classList.add("show");
       }
-    } 
+    }
   }
 });
 

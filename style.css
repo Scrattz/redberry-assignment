@@ -419,8 +419,10 @@ select::-ms-expand {
   justify-content: start;
 }
 
-.resName {
+.resName span {
   margin-bottom: 1rem;
+  max-width: 26.5rem;
+  display: inline-block;
 }
 
 h1 {
@@ -499,6 +501,21 @@ h1 {
 .resPositionAndEmployer,
 .resInstitutionAndDegree {
   font-weight: 500;
+  display: flex;
+}
+
+.resInstitutionAndDates {
+  display: flex;
+  flex-direction: column;
+}
+
+.resPositionAndDates {
+  display: flex;
+  flex-direction: column;
+}
+
+.resExperienceDates {
+  display: flex;
 }
 
 .resExperienceDates,
@@ -512,7 +529,7 @@ h1 {
 .resEducation {
   border-top: 1px solid #c8c8c8;
   padding: 0.375rem 0;
-  display: none;
+  /* display: none; */
 }
 
 .resStarIcon {
