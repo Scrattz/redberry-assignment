@@ -494,6 +494,11 @@ h1 {
   display: none;
 }
 
+
+.resAboutMe{
+  display: flex;
+  flex-direction: column;
+}
 .resAboutMeHeading {
   display: none;
 }

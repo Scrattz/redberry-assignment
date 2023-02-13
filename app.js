@@ -22,8 +22,42 @@ const goToLandingPage = document.querySelector(".goToLandingPage");
 const nextBtn = document.querySelector(".nextBtn");
 const backBtn = document.querySelector(".backBtn");
 const submitBtn = document.querySelector(".submitBtn");
-const selectElement = document.getElementById("degreeType");
 const apiBaseURL = "https://resume.redberryinternship.ge/api";
+
+async function getData() {
+  try {
+    const response = await fetch(`${apiBaseURL}/degrees`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const selectOptions = getData();
+selectOptions
+  .then((options) => {
+    for (const edu of sessionObj.educations) {
+      edu.degreeType.options = options;
+      updateFormData();
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// let selectElements = document.getElementsByName("degree");
+// selectElements.forEach((selectElement) => {
+//   console.log(selectElement);
+//   selectOptions.then((options) => {
+//     options.forEach((option) => {
+//       let optionElement = document.createElement("option");
+//       optionElement.value = option.id;
+//       optionElement.innerHTML = option.title;
+//       selectElement.appendChild(optionElement);
+//     });
+//   });
+// });
 
 const getEducationTemplate = () => {
   return {
@@ -38,6 +72,7 @@ const getEducationTemplate = () => {
       id: "degreeType",
       validationType: "selectionType",
       value: "",
+      options: [],
       isValid: false,
       wasEdited: false,
     },
@@ -132,7 +167,7 @@ let sessionObj = {
   img: {
     id: "img",
     validationType: "imgType",
-    value: null,
+    value: "",
     isValid: false,
     wasEdited: false,
   },
@@ -149,6 +184,15 @@ let sessionObj = {
     education: false,
   },
 };
+
+async function postData(url = "", data = {}) {
+  const response = await fetch(url, {
+    method: "POST",
+
+    body: JSON.stringify(data),
+  });
+  return await response;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionObj.currentPage.personalInfo === true) {
@@ -193,6 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   landingPage.classList.add("show");
+  landingPage.classList.add("directionColumn");
 });
 
 const sessionInfo = sessionStorage.getItem("formData");
@@ -307,9 +352,50 @@ window.addEventListener("click", (e) => {
         submitBtn.classList.remove("show");
         nextBtn.classList.add("show");
       }
+    } else if (elem === submitBtn) {
+      const {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        experiences,
+        educations,
+        img,
+        aboutMe,
+      } = sessionObj;
+      const formData = {
+        name: firstName.value,
+        surname: lastName.value,
+        email: email.value,
+        phone_number: phoneNumber.value,
+        experiences: experiences.map((experience) => experience.value),
+        educations: educations.map((education) => education.value),
+        image: img.value,
+        about_me: aboutMe.value,
+      };
+      let exp = experiences.map((experience) => experience.value);
+      console.log(exp);
+      console.log(formData);
+      postData(`${apiBaseURL}/cvs`, formData)
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
     }
   }
 });
+
+// function updateInput(e) {
+//   const fr = new FileReader();
+//   fr.readAsDataURL(e.target.files[0]);
+//   fr.addEventListener("load", () => {
+//     setPhoto(fr.result);
+//   });
+// }
+
+//   let blobPhoto;
+
+//   fetch(photo)
+//     .then((res) => res.blob())
+//     .then((blob) => (blobPhoto = blob));
 
 const addListenersAndUpdate = (key, value) => {
   let inputElement = document.querySelector(`#${value.id}`);
@@ -320,6 +406,16 @@ const addListenersAndUpdate = (key, value) => {
   inputElement.value = previousValue;
 
   inputElement.addEventListener("input", (e) => {
+    if (e.target.id === "img") {
+      const file = e.target.files[0];
+      const fr = new FileReader();
+      fr.onload = function () {
+        const blob = new Blob([fr.result], { type: file });
+      };
+      fr.readAsArrayBuffer(file);
+      sessionObj.img.value = blob;
+      updateFormData();
+    }
     value.value = e.target.value;
     // updates info in resPreview
     for (let item of resItems) {
@@ -435,7 +531,6 @@ if (sessionObj.experiences.length === 0) {
       addListenersAndUpdate(key, value);
     }
   }
-  // aq createNewExpInputs("", false) functions ver viyeneb radgan getExperienceTemplate ar mchirdeba aq;
 }
 
 if (sessionObj.educations.length === 0) {
